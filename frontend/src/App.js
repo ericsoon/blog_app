@@ -3,6 +3,7 @@ import {createBrowserRouter,RouterProvider,Route,Outlet} from 'react-router-dom'
 
 import {Footer, Navbar} from './components';
 import {Register,Login, Write, Home, Single} from './pages';
+import "./style.scss";
 
 const Display = () => {
   return(
