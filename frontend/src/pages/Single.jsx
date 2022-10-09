@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Edit from '../img/edit.png';
 import Delete from '../img/delete.png';
+import { Menu } from '../components';
 
 const Single = () => {
   console.log('a');
@@ -58,7 +59,7 @@ const Single = () => {
           repellat.
         </p>
       </div>
-      <div className="menu">menu</div>
+      <Menu />
     </div>
   );
 };

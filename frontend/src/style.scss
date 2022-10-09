@@ -267,6 +267,47 @@ $lightGreen: #b9e7e7;
 
             .menu{
                 flex:2;
+                display: flex;
+                flex-direction: column;
+                gap:1.5rem;
+
+                h1{
+                    font-size: 1.4rem;
+                    color: #555;
+                }
+
+                .post{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.8rem;
+                }
+
+                img{
+                    width: 100%;
+                    height: 14rem;
+                    object-fit: cover;
+                }
+
+                h2{
+                    color: #555;
+                }
+
+                button{
+                    width: max-content;
+                    padding: 0.6rem 0.7rem;
+                    border: none;
+                    cursor: pointer;
+                    background-color: white;
+                    border: 1px solid teal;
+                    color: teal;
+                    font-weight: 700;
+                    
+                    &:hover{
+                        border: 1px solid white;
+                        background-color: $lightGreen;
+                        color:black;
+                    }
+                }
             }
         }
     }
