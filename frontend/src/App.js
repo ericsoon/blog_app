@@ -1,24 +1,25 @@
 import React from 'react';
-import {createBrowserRouter,RouterProvider,Route,Outlet} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 
-import {Footer, Navbar} from './components';
-import {Register,Login, Write, Home, Single} from './pages';
-import "./style.scss";
+import { Footer, Navbar } from './components';
+import { Register, Login, Write, Home, Single } from './pages';
+import './style.scss';
 
 const Display = () => {
-  return(
+  console.log('a');
+  return (
     <>
       <Navbar />
       <Outlet />
       <Footer />
     </>
-  )
-}
+  );
+};
 
-function App() {
+const App = () => {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: '/',
       element: <Display />,
       children: [
         {
@@ -32,33 +33,33 @@ function App() {
         {
           path: '/write',
           element: <Write />,
-        }
-      ]
+        },
+      ],
     },
     {
-      path: "/register",
+      path: '/register',
       element: <Register />,
     },
     {
-      path: "/login",
+      path: '/login',
       element: <Login />,
     },
     {
-      path: "/write",
+      path: '/write',
       element: <Write />,
     },
     {
-      path: "/single",
+      path: '/single',
       element: <Single />,
     },
   ]);
   return (
-    <div className='app'>
-      <div className='container'>
+    <div className="app">
+      <div className="container">
         <RouterProvider router={router} />
       </div>
     </div>
   );
-}
+};
 
 export default App;
