@@ -27,7 +27,7 @@ const Login = () => {
       setError(err.response.data);
     }
   };
-  console.log('a');
+  // console.log('a');
   return (
     <div className="auth">
       <h1>Login</h1>
