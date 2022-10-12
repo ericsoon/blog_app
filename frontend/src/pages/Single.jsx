@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
 
@@ -12,6 +12,7 @@ const Single = () => {
   const [post, setPost] = useState([]);
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   const postId = location.pathname.split('/')[2];
 
@@ -30,13 +31,23 @@ const Single = () => {
     };
     fetchData();
   }, [postId]);
+
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`/posts/${postId}`);
+      navigate('/');
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="single">
       <div className="content">
         <img src={post?.img} alt="content" />
 
         <div className="user">
-          <img src="" alt="user" />
+          {post.userImg && <img src={post.userImg} alt="user" />}
 
           <div className="info">
             <span>{post.username}</span>
@@ -49,7 +60,7 @@ const Single = () => {
               <img src={Edit} alt="edit" />
             </Link>
             <Link to="/write/edit=2">
-              <img src={Delete} alt="delete" />
+              <img onClick={handleDelete} src={Delete} alt="delete" />
             </Link>
           </div>
           )}
