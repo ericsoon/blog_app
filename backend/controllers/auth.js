@@ -48,11 +48,14 @@ export const login = (req, res) => {
       httpOnly: true,
     }).status(200).json(other);
 
-    bcrypt.compareSync(req.body.password, hash); // true
-    bcrypt.compareSync('not_bacon', hash); // false
+    // bcrypt.compareSync(req.body.password, hash); // true
+    // bcrypt.compareSync('not_bacon', hash); // false
   });
 };
 
 export const logout = (req, res) => {
-
+  res.clearCookie('access_token', {
+    sameSite: 'none',
+    secure: true,
+  }).status(200).json('User has been logout!');
 };
