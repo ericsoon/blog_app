@@ -60,7 +60,7 @@ const Single = () => {
               <img src={Edit} alt="edit" />
             </Link>
             <Link to="/write/edit=2">
-              <img onClick={handleDelete} src={Delete} alt="delete" />
+              <img onClick={handleDelete} src={Delete} alt="delete" />  {/*eslint-disable-line*/}
             </Link>
           </div>
           )}
