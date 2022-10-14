@@ -13,7 +13,7 @@ app.use(cookieParser());
 
 const upload = multer({ dest: 'uploads/' });
 
-app.post('/upload', upload.single('file'), (req, res) => {
+app.post('/api/upload', upload.single('file'), (req, res) => {
   res.status(200).json('Image has been uploaded');
 });
 
