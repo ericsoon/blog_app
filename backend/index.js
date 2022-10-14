@@ -13,17 +13,18 @@ app.use(cookieParser());
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, 'uploads');
+    cb(null, '../frontend/public/upload');
   },
   filename(req, file, cb) {
-    cb(null, file.originalname);
+    cb(null, Date.now() + file.originalname);
   },
 });
 
 const upload = multer({ storage });
 
 app.post('/api/upload', upload.single('file'), (req, res) => {
-  res.status(200).json('Image has been uploaded');
+  const { file } = req;
+  res.status(200).json(file.filename);
 });
 
 app.use('/api/auth', authRoutes);
