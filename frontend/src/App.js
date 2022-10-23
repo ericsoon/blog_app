@@ -5,16 +5,13 @@ import { Footer, Navbar } from './components';
 import { Register, Login, Write, Home, Single } from './pages';
 import './style.scss';
 
-const Display = () => {
-  console.log('a');
-  return (
-    <>
-      <Navbar />
-      <Outlet />
-      <Footer />
-    </>
-  );
-};
+const Display = () => (
+  <>
+    <Navbar />
+    <Outlet />
+    <Footer />
+  </>
+);
 
 const App = () => {
   const router = createBrowserRouter([
