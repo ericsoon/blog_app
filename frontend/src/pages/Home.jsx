@@ -7,6 +7,8 @@ const Home = () => {
 
   const cat = useLocation().search;
 
+  console.log(posts);
+
   // console.log(cat);
 
   useEffect(() => {
@@ -53,7 +55,7 @@ const Home = () => {
         {posts.map((post) => (
           <div className="post" key={post.id}>
             <div className="img">
-              <img src={post.img} alt={post.title} />
+              <img src={`./upload/${post.img}`} alt={post.title} />
             </div>
             <div className="content">
               <Link className="link" to={`/post/${post.id}`}>
