@@ -119,7 +119,7 @@ const Write = () => {
 
           <div className="cat">
             <label htmlFor="food">
-              <input type="radio" checked={cat === 'food'} name="cat" value="food" id="food" />
+              <input type="radio" checked={cat === 'food'} name="cat" value="food" id="food" onChange={handleCat}/>
               Food
             </label>
           </div>
