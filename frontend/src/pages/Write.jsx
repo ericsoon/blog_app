@@ -97,29 +97,29 @@ const Write = () => {
           </div>
 
           <div className="cat">
-            <label htmlFor="Science">
-              <input type="radio" checked={cat === 'science'} name="cat" value="Science" id="Science" onChange={handleCat} />
+            <label htmlFor="science">
+              <input type="radio" checked={cat === 'science'} name="cat" value="science" id="science" onChange={handleCat} />
               Science
             </label>
           </div>
 
           <div className="cat">
-            <label htmlFor="Cinema">
-              <input type="radio" checked={cat === 'cinema'} name="cat" value="Cinema" id="Cinema" onChange={handleCat} />
+            <label htmlFor="cinema">
+              <input type="radio" checked={cat === 'cinema'} name="cat" value="cinema" id="cinema" onChange={handleCat} />
               Cinema
             </label>
           </div>
 
           <div className="cat">
-            <label htmlFor="Design">
-              <input type="radio" checked={cat === 'design'} name="cat" value="Design" id="Design" onChange={handleCat} />
+            <label htmlFor="design">
+              <input type="radio" checked={cat === 'design'} name="cat" value="design" id="design" onChange={handleCat} />
               Design
             </label>
           </div>
 
           <div className="cat">
-            <label htmlFor="Food">
-              <input type="radio" checked={cat === 'food'} name="cat" value="Food" id="Food" />
+            <label htmlFor="food">
+              <input type="radio" checked={cat === 'food'} name="cat" value="food" id="food" />
               Food
             </label>
           </div>
