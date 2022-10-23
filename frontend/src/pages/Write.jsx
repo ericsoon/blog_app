@@ -1,19 +1,21 @@
-import axios from 'axios';
-import moment from 'moment';
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import moment from 'moment';
 
 /* eslint-disable */
 const Write = () => {
   const state = useLocation().state;
-  console.log(state)
-  const [value, setValue] = useState(state?.title || '');
+  // console.log(state)
+  const [value, setValue] = useState(state?.desc || '');
   const [title, setTitle] = useState(state?.title || '');
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState(state?.cat || '');
 
   const navigate = useNavigate();
+
   const upload = async () => {
     try {
       const formData = new FormData();
@@ -28,9 +30,10 @@ const Write = () => {
   const handleTitle = (e) => setTitle(e.target.value);
   const handleFile = (e) => setFile(e.target.files[0]);
   const handleCat = (e) => setCat(e.target.value);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const imgUrl = upload();
+    const imgUrl = await upload();
     try {
       state
         ? await axios.put(
@@ -56,12 +59,10 @@ const Write = () => {
     }
   };
 
-  { /* eslint-disable */}
-
   return (
     <div className="add">
       <div className="content">
-        <input type="text" value={title} placeholder="Title" onChange={handleTitle} />
+        <input type="text" value={title}  placeholder="Title" onChange={handleTitle} />
         <div className="editorContainer">
           <ReactQuill className="editor" theme="snow" value={value} onChange={setValue} />
         </div>
@@ -76,7 +77,7 @@ const Write = () => {
             <b>Visibility: </b> Public
           </span>
 
-          <label htmlFor="file">
+          <label className= "file" htmlFor="file">
             Upload Image
             <input style={{ display: 'none' }} type="file" name="" id="file" onChange={handleFile} />
           </label>
