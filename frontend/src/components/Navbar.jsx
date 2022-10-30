@@ -6,6 +6,7 @@ import Logo from '../img/logo.png';
 
 const Navbar = () => {
   const { currentUser, logout } = useContext(AuthContext);
+  console.log(currentUser);
   return (
     <div className="navbar">
       <div className="container">
@@ -30,7 +31,11 @@ const Navbar = () => {
           <Link to="?cat=food" className="link">
             <h6>Food</h6>
           </Link>
-          <span>{currentUser?.username}</span>
+          <span>
+            <Link to={`/user/${currentUser?.username}`}>
+              {currentUser?.username}
+            </Link>
+          </span>
           {currentUser ? (
             <span onClick={logout}>
               Logout

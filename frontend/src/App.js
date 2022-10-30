@@ -2,7 +2,7 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 
 import { Footer, Navbar } from './components';
-import { Register, Login, Write, Home, Single } from './pages';
+import { Register, Login, Write, Home, Single, User } from './pages';
 import './style.scss';
 
 const Display = () => (
@@ -30,6 +30,10 @@ const App = () => {
         {
           path: '/write',
           element: <Write />,
+        },
+        {
+          path: '/user/:id',
+          element: <User />,
         },
       ],
     },
