@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { AuthContext } from '../context/authContext';
 
 const User = () => {
-  console.log('a');
+  const { currentUser } = useContext(AuthContext);
+  console.log(currentUser);
   return (
-    <div>User</div>
+    <div>
+      {currentUser?.username}
+      <br />
+      {currentUser?.email}
+      <br />
+      {currentUser?.img}
+    </div>
   );
 };
 
