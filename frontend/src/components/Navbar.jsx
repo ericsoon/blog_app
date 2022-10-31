@@ -32,7 +32,7 @@ const Navbar = () => {
             <h6>Food</h6>
           </Link>
           <span>
-            <Link to={`/user/${currentUser?.username}`}>
+            <Link to={`/user/${currentUser?.username}`} className="link">
               {currentUser?.username}
             </Link>
           </span>

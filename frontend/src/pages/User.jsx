@@ -6,12 +6,20 @@ const User = () => {
   const { currentUser } = useContext(AuthContext);
   console.log(currentUser);
   return (
-    <div>
-      {currentUser?.username}
-      <br />
-      {currentUser?.email}
-      <br />
-      {currentUser?.img}
+    <div className="user">
+      <form>
+        <div className="img">
+          {currentUser?.img}
+        </div>
+
+        <div className="profile">
+          <input type="text" id="username" name="username" value={currentUser?.username} />
+          <input type="text" id="username" name="username" value={currentUser?.email} />
+        </div>
+        <button type="button">Submit</button>
+
+      </form>
+
     </div>
   );
 };
