@@ -8,7 +8,6 @@ import moment from 'moment';
 /* eslint-disable */
 const Write = () => {
   const state = useLocation().state;
-  // console.log(state)
   const [value, setValue] = useState(state?.desc || '');
   const [title, setTitle] = useState(state?.title || '');
   const [file, setFile] = useState(null);
@@ -21,7 +20,7 @@ const Write = () => {
       const formData = new FormData();
       formData.append('file', file);
       const res = await axios.post('/upload', formData);
-      return res.data;
+      return res.data ;
     } catch (err) {
       console.log(err);
     }

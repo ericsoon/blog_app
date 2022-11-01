@@ -18,8 +18,6 @@ const Single = () => {
 
   const { currentUser } = useContext(AuthContext);
 
-  // console.log(cat);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
