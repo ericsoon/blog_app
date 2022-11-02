@@ -43,6 +43,7 @@ const Single = () => {
     const doc = new DOMParser().parseFromString(html, 'text/html');
     return doc.body.textContent;
   };
+  console.log(post);
 
   return (
     <div className="single">
@@ -53,7 +54,7 @@ const Single = () => {
           {post.userImg && <img src={`../upload/${post.userImg}`} alt="user" />}
 
           <div className="info">
-            <span>{post.username}</span>
+            <span>{post?.username}</span>
             <p>Posted {moment(post.date).fromNow()}</p>
           </div>
 

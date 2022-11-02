@@ -58,6 +58,8 @@ const Write = () => {
     }
   };
 
+  console.log(title)
+
   return (
     <div className="add">
       <div className="content">
@@ -82,7 +84,9 @@ const Write = () => {
           </label>
           <div className="buttons">
             <button type="button">Save as a draft</button>
-            <button type="button" onClick={handleSubmit}>Update</button>
+            <button type="button" onClick={handleSubmit}>
+              {title ? 'Update' : 'Upload' }
+            </button>
           </div>
         </div>
         <div className="item">
