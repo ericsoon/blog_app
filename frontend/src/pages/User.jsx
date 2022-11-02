@@ -10,37 +10,38 @@ const User = () => {
   const { currentUser } = useContext(AuthContext);
   const [username, setUsername] = useState(currentUser?.username || '');
   const [email, setEmail] = useState(currentUser?.email || '');
-  // const [file, setFile] = useState(null);
+  const [file, setFile] = useState(null);
 
 
   const navigate = useNavigate();
-  // console.log(currentUser);
+   console.log(currentUser);
 
-  // const upload = async () => {
-  //   try {
-  //     const formData = new FormData();
-  //     formData.append('file', file);
-  //     const res = await axios.post('/upload', formData);
-  //     console.log(res.data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  const upload = async () => {
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      const res = await axios.post('/upload', formData);
+      console.log(res.data);
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleUsername = (e) => setUsername(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
-  // const handleFile = (e) => setFile(e.target.value);
+  const handleFile = (e) => setFile(e.target.files[0]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const imgUrl = await upload();
+    const imgUrl = await upload();
     try {
       await axios.put(
         `/user/${currentUser.id}`,
         {
           username,
           email,
-          // img: file ? imgUrl : '',
+          img: file ? imgUrl : '',
         },
       );
       navigate('/');
@@ -48,15 +49,17 @@ const User = () => {
       console.log(err);
     }
   };
+
+  console.log(`./upload/${currentUser.img}`)
   return (
     <div className="user">
       <form>
         <div className="img">
           <label className="file" htmlFor="file">
             {currentUser.img
-              ? <img src={currentUser.img} alt={currentUser.username} className="img" />
+              ? <img src={`../upload/${currentUser.img}`} alt={currentUser.username} className="img" />
               : <img src={userLogo} alt="logo" className="img" />}
-            {/* <input style={{ display: 'none' }} type="file" name="" id="file" onChange={handleFile} /> */}
+            <input style={{ display: 'none' }} type="file" name="" id="file" onChange={handleFile} />
           </label>
         </div>
 

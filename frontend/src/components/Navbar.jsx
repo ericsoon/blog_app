@@ -6,7 +6,6 @@ import Logo from '../img/logo.png';
 
 const Navbar = () => {
   const { currentUser, logout } = useContext(AuthContext);
-  console.log(currentUser);
   return (
     <div className="navbar">
       <div className="container">

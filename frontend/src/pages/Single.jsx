@@ -50,7 +50,7 @@ const Single = () => {
         <img src={`../upload/${post?.img}`} alt="content" />
 
         <div className="user">
-          {post.userImg && <img src={post.userImg} alt="user" />}
+          {post.userImg && <img src={`../upload/${post.userImg}`} alt="user" />}
 
           <div className="info">
             <span>{post.username}</span>
